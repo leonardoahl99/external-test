@@ -1,0 +1,70 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://schema-examples.com/external-test",
+
+	"title": "Title",
+	"description": "Description",
+
+	"allOf": [
+		{
+			"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
+		}
+	],
+	
+	"type": "object",
+	"properties": {
+		"headline": {
+			"title": "Headline",
+			"description": "The main title of this banner",
+			"type": "string"
+		},
+		"strapline": {
+			"title": "The subtitle of this banner",
+			"description": "description",
+			"type": "string"
+		},
+		"background": {
+			"title": "Background image",
+			"type": "object",
+			"properties": {
+				"alt": {
+					"title": "Alternative text",
+					"description": "The image alt text",
+					"type": "string"
+				},
+				"image": {
+					"title": "Background image",
+					"allOf": [
+						{ "$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/image-link" }
+					]
+				}
+				
+			},
+			"propertyOrder": []
+		},
+		"link": {
+			"title": "Link",
+			"type": "object",
+			"properties": {
+				"url": {
+					"title": "URL",
+					"description": "The url that will be openened when link is clicked",
+					"type": "string",
+					"minLength": 0,
+					"maxLength": 10
+				},
+				"title": {
+					"title": "Title",
+					"description": "Text displayed for the link",
+					"type": "string",
+					"minLength": 0,
+					"maxLength": 10
+				}
+				
+			},
+			"propertyOrder": []
+		}
+		
+	},
+	"propertyOrder": []
+}
