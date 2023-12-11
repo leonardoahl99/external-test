@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://schema-examples.com/tutorial-banner-leo-test-external",
+	"$id": "https://schema-examples.com/test-schema",
 
 	"title": "Title",
 	"description": "Description",
