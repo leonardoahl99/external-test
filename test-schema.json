@@ -1,70 +1,62 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://schema-examples.com/test-schema",
-
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "http://example.com/external-test",
+  
 	"title": "Title",
 	"description": "Description",
-
+  
 	"allOf": [
-		{
-			"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
-		}
+	  {
+		"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
+	  }
 	],
-	
+  
 	"type": "object",
 	"properties": {
-		"headline": {
-			"title": "Headline",
-			"description": "The main title of this banner",
-			"type": "string"
-		},
-		"strapline": {
-			"title": "The subtitle of this banner",
-			"description": "description",
-			"type": "string"
-		},
-		"background": {
-			"title": "Background image",
-			"type": "object",
-			"properties": {
-				"alt": {
-					"title": "Alternative text",
-					"description": "The image alt text",
-					"type": "string"
-				},
-				"image": {
-					"title": "Background image",
-					"allOf": [
-						{ "$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/image-link" }
-					]
-				}
-				
-			},
-			"propertyOrder": []
-		},
-		"link": {
-			"title": "Link",
-			"type": "object",
-			"properties": {
-				"url": {
-					"title": "URL",
-					"description": "The url that will be openened when link is clicked",
-					"type": "string",
-					"minLength": 0,
-					"maxLength": 10
-				},
-				"title": {
-					"title": "Title",
-					"description": "Text displayed for the link",
-					"type": "string",
-					"minLength": 0,
-					"maxLength": 10
-				}
-				
-			},
-			"propertyOrder": []
-		}
-		
+	  "headline": {
+		"title": "Headline",
+		"description": "The banner headline",
+		"type": "string",
+		"minLength": 0,
+		"maxLength": 255
+	  },
+	  "strapline": {
+		"title": "Strapline",
+		"description": "The banner subheading",
+		"type": "string",
+		"minLength": 0,
+		"maxLength": 255
+	  },
+	  "background": {
+		"title": "Background",
+		"description": "Background image",
+		"allOf": [
+		  {
+			"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/image-link"
+		  }
+		]
+	  },
+	  "calltoactiontext": {
+		"title": "Calltoactiontext",
+		"description": "Text for the call to action",
+		"type": "string",
+		"minLength": 0,
+		"maxLength": 255
+	  },
+	  "calltoactionurl": {
+		"title": "Calltoactionurl",
+		"description": "The URL that will open when the user clicks",
+		"type": "string",
+		"format": "uri",
+		"minLength": 0,
+		"maxLength": 255
+	  }
 	},
-	"propertyOrder": []
-}
+	"propertyOrder": [
+	  "headline",
+	  "strapline",
+	  "background",
+	  "calltoactiontext",
+	  "calltoactionurl"
+	]
+  }
